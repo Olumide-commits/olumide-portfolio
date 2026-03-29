@@ -5,57 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Olubisi Olumide | Blog Writer</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #0f172a;
-      color: #f1f5f9;
-    }
-    header {
-      text-align: center;
-      padding: 60px 20px;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-    header p {
-      color: #94a3b8;
-    }
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-    h2 {
-      border-bottom: 2px solid #38bdf8;
-      padding-bottom: 10px;
-    }
-    .card {
-      background: #1e293b;
-      padding: 20px;
-      margin-top: 20px;
-      border-radius: 12px;
-      transition: transform 0.2s ease;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 15px;
-      background: #38bdf8;
-      color: black;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #94a3b8;
-    }
+    body {font-family: Arial, sans-serif;margin:0;background:#0f172a;color:#f1f5f9;}
+    header {text-align:center;padding:60px 20px;}
+    header h1 {font-size:2.5rem;margin-bottom:10px;}
+    header p {color:#94a3b8;}
+    section {max-width:900px;margin:auto;padding:40px 20px;}
+    h2 {border-bottom:2px solid #38bdf8;padding-bottom:10px;}
+    .card {background:#1e293b;padding:20px;margin-top:20px;border-radius:12px;transition:0.3s;cursor:pointer;}
+    .card:hover {transform:translateY(-5px);}
+    .btn {display:inline-block;margin-top:10px;padding:10px 15px;background:#38bdf8;color:black;text-decoration:none;border-radius:8px;font-weight:bold;}
+    .modal {display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);padding:40px;overflow:auto;}
+    .modal-content {background:#1e293b;padding:30px;border-radius:12px;max-width:800px;margin:auto;}
+    .close {float:right;cursor:pointer;font-size:20px;}
+    input, textarea {width:100%;padding:10px;margin-top:10px;border-radius:6px;border:none;}
+    footer {text-align:center;padding:20px;color:#94a3b8;}
   </style>
 </head>
 <body>
@@ -67,77 +30,72 @@
 
 <section>
   <h2>About Me</h2>
-  <p>I am a passionate blog writer focused on creating engaging, clear, and valuable content. I specialize in lifestyle, productivity, and technology topics, helping brands and readers connect through impactful storytelling.</p>
-</section>
-
-<section>
-  <h2>Skills</h2>
-  <div class="card">
-    <p>✔ Blog Writing<br>
-    ✔ SEO Writing<br>
-    ✔ Research & Content Creation<br>
-    ✔ Copywriting<br>
-    ✔ Editing & Proofreading</p>
-  </div>
+  <p>I am a passionate blog writer focused on creating engaging, SEO-optimized and valuable content. I help brands and audiences connect through impactful storytelling and well-researched articles.</p>
 </section>
 
 <section>
   <h2>Portfolio</h2>
 
-  <div class="card">
+  <div class="card" onclick="openModal('article1')">
     <h3>The Importance of Staying Consistent</h3>
-    <p>Consistency is the foundation of long-term success. This article explains how small daily actions build powerful habits and lead to meaningful progress over time.</p>
-    <a href="#" class="btn">Read More</a>
+    <p>Learn why consistency is more powerful than motivation.</p>
   </div>
 
-  <div class="card">
-    <h3>Top 5 Ways to Improve Productivity</h3>
-    <p>Discover practical strategies to boost your daily productivity, from goal setting to eliminating distractions and maintaining focus.</p>
-    <a href="#" class="btn">Read More</a>
+  <div class="card" onclick="openModal('article2')">
+    <h3>Beginner’s Guide to SEO Writing</h3>
+    <p>Master the basics of writing content that ranks on Google.</p>
   </div>
 
-  <div class="card">
-    <h3>How Technology is Changing Life</h3>
-    <p>An insightful look into how modern technology is reshaping communication, work, and everyday living in today’s digital world.</p>
-    <a href="#" class="btn">Read More</a>
-  </div>
-
-  <div class="card">
-    <h3>10 Daily Habits for Personal Growth</h3>
-    <p>This article explores simple yet powerful habits that can improve your mindset, discipline, and overall personal development.</p>
-    <a href="#" class="btn">Read More</a>
-  </div>
-
-  <div class="card">
-    <h3>The Beginner’s Guide to SEO Writing</h3>
-    <p>Learn the basics of SEO writing, including keyword usage, readability, and how to create content that ranks on search engines.</p>
-    <a href="#" class="btn">Read More</a>
-  </div>
-
-  <div class="card">
-    <h3>How to Stay Motivated When You Feel Stuck</h3>
-    <p>A motivational piece that provides actionable tips to overcome procrastination and regain focus when facing challenges.</p>
-    <a href="#" class="btn">Read More</a>
-  </div>
-
-  <div class="card">
-    <h3>Why Content is King in Digital Marketing</h3>
-    <p>This article highlights the importance of high-quality content in building brand authority and driving online engagement.</p>
-    <a href="#" class="btn">Read More</a>
+  <div class="card" onclick="openModal('article3')">
+    <h3>10 Daily Habits for Success</h3>
+    <p>Simple habits that can transform your productivity and mindset.</p>
   </div>
 
 </section>
 
+<!-- MODALS -->
+<div id="article1" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('article1')">&times;</span>
+    <h2>The Importance of Staying Consistent</h2>
+    <p>Consistency is what separates successful people from those who give up early. While motivation comes and goes, consistency ensures progress every day. By building small habits and sticking to them, you create long-term success without burnout. Whether it's writing, fitness, or learning, showing up daily makes all the difference.</p>
+  </div>
+</div>
+
+<div id="article2" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('article2')">&times;</span>
+    <h2>Beginner’s Guide to SEO Writing</h2>
+    <p>SEO writing is about creating content that both humans and search engines love. It involves using the right keywords, structuring your content properly, and making it easy to read. When done right, SEO writing increases visibility and drives organic traffic to your content.</p>
+  </div>
+</div>
+
+<div id="article3" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('article3')">&times;</span>
+    <h2>10 Daily Habits for Success</h2>
+    <p>Success is built on daily habits. Start your day with clear goals, stay focused, and take consistent action. Small improvements each day lead to massive growth over time. Discipline and routine are key to achieving long-term success.</p>
+  </div>
+</div>
+
 <section>
-  <h2>Contact</h2>
+  <h2>Contact Me</h2>
   <div class="card">
-    <p>Email: Olubisiolumidesodiq12@gmail.com</p>
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Your Email">
+    <textarea placeholder="Your Message"></textarea>
+    <button class="btn">Send Message</button>
   </div>
 </section>
 
 <footer>
   <p>© 2026 Olubisi Olumide</p>
 </footer>
+
+<script>
+function openModal(id){document.getElementById(id).style.display='block';}
+function closeModal(id){document.getElementById(id).style.display='none';}
+</script>
 
 </body>
 </html>
